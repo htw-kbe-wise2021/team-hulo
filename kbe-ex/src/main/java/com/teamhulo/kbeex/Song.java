@@ -58,4 +58,15 @@ public class Song {
     public void setReleased(int released) {
         this.released = released;
     }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", label='" + label + '\'' +
+                ", released=" + released +
+                '}';
+    }
 }

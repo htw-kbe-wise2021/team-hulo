@@ -49,4 +49,25 @@ public class SongLibrary {
     public List<Song> getSongList() {
         return songList;
     }
+
+    public Song findAnIndex(int id) {
+
+        for (Song song : songList) {
+            if (song.getId() == id) {
+                return song;
+            }
+        }
+
+        return null;
+    }
+
+    public Song saveSong(Song songToSave) {
+
+        if (findAnIndex(songToSave.getId()) != null) {
+            return null;
+        } else {
+            songList.add(songToSave);
+            return songToSave;
+        }
+    }
 }
