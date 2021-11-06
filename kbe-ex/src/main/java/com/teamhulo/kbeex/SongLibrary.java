@@ -1,6 +1,7 @@
 package com.teamhulo.kbeex;
 
 import org.json.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -68,6 +69,27 @@ public class SongLibrary {
         } else {
             songList.add(songToSave);
             return songToSave;
+        }
+    }
+
+    public Song replaceSong(Song replacementSong, int id) {
+        Song songToChange = findAnIndex(id);
+
+        if (songToChange != null) {
+            songToChange.setTitle(replacementSong.getTitle());
+            songToChange.setArtist(replacementSong.getArtist());
+            songToChange.setLabel(replacementSong.getLabel());
+            songToChange.setReleased(replacementSong.getReleased());
+        }
+
+        return songToChange;
+    }
+
+    public void deleteSong(int id) {
+        Song songToDelete = findAnIndex(id);
+
+        if (songToDelete != null) {
+            songList.remove(songToDelete);
         }
     }
 }

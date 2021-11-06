@@ -25,4 +25,14 @@ public class SongController {
     public Song createSong(@RequestBody Song newSong) {
         return songLibrary.saveSong(newSong);
     }
+
+    @PutMapping(path = "team-hulo/songs/{id}")
+    public Song replaceSong(@RequestBody Song updatedSong, @PathVariable int id) {
+        return songLibrary.replaceSong(updatedSong, id);
+    }
+
+    @DeleteMapping(path = "team-hulo/songs/{id}")
+    public void deleteSong(@PathVariable int id) {
+        songLibrary.deleteSong(id);
+    }
 }
