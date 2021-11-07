@@ -20,7 +20,6 @@ public class SongController {
         return songLibrary.findAnIndex(id);
     }
 
-    //TODO Allocate own song id
     @PostMapping(path = "team-hulo/songs")
     public Song createSong(@RequestBody Song newSong) {
         return songLibrary.saveSong(newSong);
